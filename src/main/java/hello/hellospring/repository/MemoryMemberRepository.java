@@ -7,11 +7,11 @@ import java.util.*;
 public class MemoryMemberRepository implements MemberRepository {
     // option + enter = 자동 import
     private static final Map<Long, Member> store = new HashMap<>();
-    private static long sequence = 0L;
+    private static Long sequence = 0L;
 
     @Override
     public Member save(Member member) {
-        member.setId(sequence++);           //id를 셋팅해주고, sequence 값을 올려주면서.
+        member.setId(++sequence);           //id를 셋팅해주고, sequence 값을 올려주면서.
         store.put(member.getId(), member);  //store에 id 저장 (map에 저장됨)
         return member;
     }
